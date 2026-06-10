@@ -27,11 +27,13 @@
 - [x] 建 `apps/playground-react` → 验证：mock Assistant 页面可构建
 - [x] 运行完整验证 → 验证：`pnpm test`、`pnpm build` 通过
 - [x] 启动 playground → 验证：浏览器可打开页面，布局无明显错误
+- [x] 补正式预览展厅 → 验证：总览、react-ui、react-ai、tokens 四页可浏览
 
 ## 复盘
 
 - 已搭建 `pnpm workspace`，包含 `tokens`、`react-ui`、`react-ai`、`playground-react`。
 - 已补 `README.md` 和 `docs/examples/*` 示例。
-- `pnpm test` 通过：`react-ui` 2 个测试，`react-ai` 2 个测试。
+- 已将 playground 扩展为正式预览项目，包含总览、react-ui、react-ai、tokens 四个页面。
+- `pnpm test` 通过：`react-ui` 2 个测试，`react-ai` 2 个测试，`playground-react` 2 个测试。
 - `pnpm build` 通过：tokens、react-ui、react-ai、playground-react 均完成构建。
-- 浏览器检查：桌面和 375px 移动端无页面级横向溢出。
+- 浏览器检查：四个导航页可打开，桌面和 375px 移动端无页面级横向溢出。
