@@ -133,4 +133,4 @@
 - [x] 重写 `AGENTS.md` → 验证：包含项目结构、直观验收点、视觉交互规则、验证规则
 - [x] 重写 `README.md` → 验证：覆盖项目目标、包结构、playground、视觉交互、命令、验收重点
 - [x] 运行验证 → 验证：`pnpm test`、`pnpm build`
-- [ ] 提交并推送 → 验证：`git commit`、`git push`
+- [x] 提交并推送 → 验证：`git commit`、`git push`
