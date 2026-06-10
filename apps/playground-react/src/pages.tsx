@@ -67,12 +67,15 @@ import {
 
 export function OverviewPage() {
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+    <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_320px]">
       <PreviewSection
         description="包含用户消息、助手消息、streaming、error、工具调用、引用、附件、推理和输入区。"
         title="Assistant 示例"
       >
-        <div className="h-[720px] overflow-hidden rounded-lg border bg-background">
+        <div
+          aria-label="紧凑 Assistant 示例"
+          className="h-[560px] overflow-hidden rounded-md border bg-background"
+        >
           <ChatPanel
             className="h-full"
             composer={
@@ -109,16 +112,16 @@ export function OverviewPage() {
         </div>
       </PreviewSection>
 
-      <div className="grid content-start gap-6">
+      <div className="grid content-start gap-4">
         <PreviewSection title="项目状态">
-          <div className="grid gap-3">
+          <div className="grid gap-2">
             <Metric title="基础组件" value="8" />
             <Metric title="AI 组件" value="9" />
             <Metric title="预览页面" value="4" />
           </div>
         </PreviewSection>
         <PreviewSection title="参考来源">
-          <div className="grid gap-2 text-sm">
+          <div className="grid gap-2">
             <ReferenceItem title="shadcn/ui" />
             <ReferenceItem title="AI Elements" />
             <ReferenceItem title="assistant-ui examples" />
@@ -131,7 +134,7 @@ export function OverviewPage() {
 
 export function ReactUiPage() {
   return (
-    <div className="grid gap-6">
+    <div className="grid gap-4">
       <PreviewSection
         description="覆盖标题、正文、说明文字、弱化文字、代码和小字号。"
         title="Typography"
@@ -175,7 +178,7 @@ export function ReactUiPage() {
         </div>
       </PreviewSection>
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <PreviewSection title="Input / Textarea">
           <div className="grid gap-3">
             <Input placeholder="输入组件名称" />
@@ -198,7 +201,7 @@ export function ReactUiPage() {
         </PreviewSection>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <PreviewSection title="Checkbox / RadioGroup">
           <div className="grid gap-4">
             <div className="grid gap-2">
@@ -223,7 +226,7 @@ export function ReactUiPage() {
         </PreviewSection>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <PreviewSection title="List">
           <List>
             <ListItem title="Typography" description="字体层级、正文、辅助文字和代码。" />
@@ -262,7 +265,7 @@ export function ReactUiPage() {
         </PreviewSection>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <PreviewSection title="Card">
           <Card>
             <CardHeader>
@@ -311,7 +314,7 @@ export function ReactUiPage() {
         </PreviewSection>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <PreviewSection title="Tabs">
           <Tabs defaultValue="usage">
             <TabsList>
@@ -320,17 +323,17 @@ export function ReactUiPage() {
               <TabsTrigger value="tokens">变量</TabsTrigger>
             </TabsList>
             <TabsContent value="usage">
-              <div className="rounded-md border p-4 text-sm text-muted-foreground">
+              <div className="rounded-md border p-3 text-sm text-muted-foreground">
                 分段切换适合后台和 AI 工作台。
               </div>
             </TabsContent>
             <TabsContent value="states">
-              <div className="rounded-md border p-4 text-sm text-muted-foreground">
+              <div className="rounded-md border p-3 text-sm text-muted-foreground">
                 active 状态使用背景和轻阴影区分。
               </div>
             </TabsContent>
             <TabsContent value="tokens">
-              <div className="rounded-md border p-4 text-sm text-muted-foreground">
+              <div className="rounded-md border p-3 text-sm text-muted-foreground">
                 颜色来自 CSS Variables。
               </div>
             </TabsContent>
@@ -351,12 +354,12 @@ export function ReactUiPage() {
 
 export function ReactAiPage() {
   return (
-    <div className="grid gap-6">
+    <div className="grid gap-4">
       <PreviewSection
         description="支持 grid、inline、list 三种展示模式。"
         title="Attachments"
       >
-        <div className="grid gap-5">
+        <div className="grid gap-4">
           <ComponentGroup label="grid">
             <Attachments items={attachmentItems} variant="grid" />
           </ComponentGroup>
@@ -380,7 +383,7 @@ export function ReactAiPage() {
         </div>
       </PreviewSection>
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <PreviewSection title="CitationList">
           <CitationList
             citations={[
@@ -408,7 +411,7 @@ export function ReactAiPage() {
         </PreviewSection>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <PreviewSection title="TaskTimeline">
           <TaskTimeline steps={taskSteps} />
         </PreviewSection>
@@ -426,7 +429,7 @@ export function ReactAiPage() {
         description="覆盖 user、assistant、streaming、done、error。"
         title="MessageItem / MessageList"
       >
-        <div className="max-h-[620px] overflow-y-auto rounded-lg border bg-background">
+        <div className="max-h-[560px] overflow-y-auto rounded-md border bg-background">
           <MessageList>
             {messages.map((message) => (
               <MessageItem key={message.id} message={message} />
@@ -440,21 +443,24 @@ export function ReactAiPage() {
 
 export function TokensPage() {
   return (
-    <div className="grid gap-6">
+    <div className="grid gap-4">
       {tokenGroups.map((group) => (
         <PreviewSection key={group.title} title={group.title}>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
             {group.items.map((item) => (
-              <div className="overflow-hidden rounded-lg border" key={item.label}>
+              <div
+                className="overflow-hidden rounded-md border transition-[border-color,box-shadow,transform] duration-150 ease-out hover:border-foreground/20 hover:shadow-sm motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none"
+                key={item.label}
+              >
                 <div
                   className={[
-                    "flex h-24 items-end p-3 text-sm font-medium",
+                    "flex h-20 items-end p-2.5 text-xs font-medium",
                     item.className,
                   ].join(" ")}
                 >
                   {item.label}
                 </div>
-                <div className="border-t bg-background p-3 text-xs text-muted-foreground">
+                <div className="border-t bg-background p-2.5 text-xs text-muted-foreground">
                   hsl(var(--{item.label}))
                 </div>
               </div>
@@ -463,22 +469,22 @@ export function TokensPage() {
         </PreviewSection>
       ))}
 
-      <div className="grid gap-6 xl:grid-cols-3">
+      <div className="grid gap-4 xl:grid-cols-3">
         <PreviewSection title="Radius">
           <div className="grid gap-3">
-            <div className="h-16 rounded-sm border bg-background" />
-            <div className="h-16 rounded-md border bg-background" />
-            <div className="h-16 rounded-lg border bg-background" />
+            <div className="h-14 rounded-sm border bg-background" />
+            <div className="h-14 rounded-md border bg-background" />
+            <div className="h-14 rounded-lg border bg-background" />
           </div>
         </PreviewSection>
 
         <PreviewSection title="Border">
           <div className="grid gap-3">
-            <div className="rounded-md border bg-background p-4 text-sm">默认边框</div>
-            <div className="rounded-md border border-dashed bg-background p-4 text-sm">
+            <div className="rounded-md border bg-background p-3 text-sm">默认边框</div>
+            <div className="rounded-md border border-dashed bg-background p-3 text-sm">
               虚线边框
             </div>
-            <div className="rounded-md border bg-muted p-4 text-sm">弱背景</div>
+            <div className="rounded-md border bg-muted p-3 text-sm">弱背景</div>
           </div>
         </PreviewSection>
 

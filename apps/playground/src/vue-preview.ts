@@ -90,11 +90,14 @@ function renderVueSection(section: UnifiedSectionId) {
 }
 
 function renderOverviewPage() {
-  return h("div", { class: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]" }, [
+  return h("div", { class: "grid gap-4 xl:grid-cols-[minmax(0,1fr)_320px]" }, [
     previewSection(
       "Assistant 示例",
       [
-        h("div", { class: "h-[720px] overflow-hidden rounded-lg border bg-background" }, [
+        h("div", {
+          "aria-label": "紧凑 Assistant 示例",
+          class: "h-[560px] overflow-hidden rounded-md border bg-background",
+        }, [
           h(
             VChatPanel,
             { class: "h-full" },
@@ -138,9 +141,9 @@ function renderOverviewPage() {
       ],
       "包含用户消息、助手消息、streaming、error、工具调用、引用、附件、推理和输入区。",
     ),
-    h("div", { class: "grid content-start gap-6" }, [
+    h("div", { class: "grid content-start gap-4" }, [
       previewSection("项目状态", [
-        h("div", { class: "grid gap-3" }, [
+        h("div", { class: "grid gap-2" }, [
           metric("基础组件", "8"),
           metric("AI 组件", "9"),
           metric("预览页面", "4"),
@@ -159,7 +162,7 @@ function renderOverviewPage() {
 }
 
 function renderVueUiPage() {
-  return h("div", { class: "grid gap-6" }, [
+  return h("div", { class: "grid gap-4" }, [
     previewSection(
       "Typography",
       [
@@ -205,7 +208,7 @@ function renderVueUiPage() {
       ],
       "覆盖 default、secondary、outline、ghost、destructive，以及 sm、md、lg、icon。",
     ),
-    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+    h("div", { class: "grid gap-4 xl:grid-cols-2" }, [
       previewSection("Input / Textarea", [
         h("div", { class: "grid gap-3" }, [
           h(VInput, { placeholder: "输入组件名称" }),
@@ -226,7 +229,7 @@ function renderVueUiPage() {
         ]),
       ]),
     ]),
-    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+    h("div", { class: "grid gap-4 xl:grid-cols-2" }, [
       previewSection("Checkbox / RadioGroup", [
         h("div", { class: "grid gap-4" }, [
           h("div", { class: "grid gap-2" }, [
@@ -249,7 +252,7 @@ function renderVueUiPage() {
         ]),
       ]),
     ]),
-    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+    h("div", { class: "grid gap-4 xl:grid-cols-2" }, [
       previewSection("List", [
         h(VList, null, () => [
           h(VListItem, { description: "字体层级、正文、辅助文字和代码。", title: "Typography" }),
@@ -298,7 +301,7 @@ function renderVueUiPage() {
         ]),
       ]),
     ]),
-    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+    h("div", { class: "grid gap-4 xl:grid-cols-2" }, [
       previewSection("Card", [
         h(VCard, null, () => [
           h(VCardHeader, null, () => [
@@ -345,7 +348,7 @@ function renderVueUiPage() {
         ]),
       ]),
     ]),
-    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+    h("div", { class: "grid gap-4 xl:grid-cols-2" }, [
       previewSection("Tabs", [
         h(VTabs, { defaultValue: "usage" }, () => [
           h(VTabsList, null, () => [
@@ -356,21 +359,21 @@ function renderVueUiPage() {
           h(VTabsContent, { value: "usage" }, () =>
             h(
               "div",
-              { class: "rounded-md border p-4 text-sm text-muted-foreground" },
+              { class: "rounded-md border p-3 text-sm text-muted-foreground" },
               "分段切换适合后台和 AI 工作台。",
             ),
           ),
           h(VTabsContent, { value: "states" }, () =>
             h(
               "div",
-              { class: "rounded-md border p-4 text-sm text-muted-foreground" },
+              { class: "rounded-md border p-3 text-sm text-muted-foreground" },
               "active 状态使用背景和轻阴影区分。",
             ),
           ),
           h(VTabsContent, { value: "tokens" }, () =>
             h(
               "div",
-              { class: "rounded-md border p-4 text-sm text-muted-foreground" },
+              { class: "rounded-md border p-3 text-sm text-muted-foreground" },
               "颜色来自 CSS Variables。",
             ),
           ),
@@ -388,11 +391,11 @@ function renderVueUiPage() {
 }
 
 function renderVueAiPage() {
-  return h("div", { class: "grid gap-6" }, [
+  return h("div", { class: "grid gap-4" }, [
     previewSection(
       "Attachments",
       [
-        h("div", { class: "grid gap-5" }, [
+        h("div", { class: "grid gap-4" }, [
           componentGroup("grid", h(VAttachments, { items: attachmentItems, variant: "grid" })),
           componentGroup("inline", h(VAttachments, { items: attachmentItems, variant: "inline" })),
           componentGroup("list", h(VAttachments, { items: attachmentItems, variant: "list" })),
@@ -411,7 +414,7 @@ function renderVueAiPage() {
       ],
       "覆盖 pending、running、success、error。",
     ),
-    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+    h("div", { class: "grid gap-4 xl:grid-cols-2" }, [
       previewSection("CitationList", [
         h(VCitationList, {
           citations: [
@@ -436,7 +439,7 @@ function renderVueAiPage() {
         ),
       ]),
     ]),
-    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+    h("div", { class: "grid gap-4 xl:grid-cols-2" }, [
       previewSection("TaskTimeline", [h(VTaskTimeline, { steps: taskSteps })]),
       previewSection("Composer", [
         h("div", { class: "grid gap-4" }, [
@@ -449,7 +452,7 @@ function renderVueAiPage() {
     previewSection(
       "MessageItem / MessageList",
       [
-        h("div", { class: "max-h-[620px] overflow-y-auto rounded-lg border bg-background" }, [
+        h("div", { class: "max-h-[560px] overflow-y-auto rounded-md border bg-background" }, [
           h(
             VMessageList,
             null,
@@ -466,21 +469,25 @@ function renderVueAiPage() {
 }
 
 function renderTokensPage() {
-  return h("div", { class: "grid gap-6" }, [
+  return h("div", { class: "grid gap-4" }, [
     ...tokenGroups.map((group) =>
       previewSection(
         group.title,
         h("div", { class: "grid gap-3 sm:grid-cols-2 xl:grid-cols-5" }, [
           group.items.map((item) =>
-            h("div", { class: "overflow-hidden rounded-lg border", key: item.label }, [
+            h("div", {
+              class:
+                "overflow-hidden rounded-md border transition-[border-color,box-shadow,transform] duration-150 ease-out hover:border-foreground/20 hover:shadow-sm motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none",
+              key: item.label,
+            }, [
               h(
                 "div",
-                { class: ["flex h-24 items-end p-3 text-sm font-medium", item.className] },
+                { class: ["flex h-20 items-end p-2.5 text-xs font-medium", item.className] },
                 item.label,
               ),
               h(
                 "div",
-                { class: "border-t bg-background p-3 text-xs text-muted-foreground" },
+                { class: "border-t bg-background p-2.5 text-xs text-muted-foreground" },
                 `hsl(var(--${item.label}))`,
               ),
             ]),
@@ -488,23 +495,23 @@ function renderTokensPage() {
         ]),
       ),
     ),
-    h("div", { class: "grid gap-6 xl:grid-cols-3" }, [
+    h("div", { class: "grid gap-4 xl:grid-cols-3" }, [
       previewSection("Radius", [
         h("div", { class: "grid gap-3" }, [
-          h("div", { class: "h-16 rounded-sm border bg-background" }),
-          h("div", { class: "h-16 rounded-md border bg-background" }),
-          h("div", { class: "h-16 rounded-lg border bg-background" }),
+          h("div", { class: "h-14 rounded-sm border bg-background" }),
+          h("div", { class: "h-14 rounded-md border bg-background" }),
+          h("div", { class: "h-14 rounded-lg border bg-background" }),
         ]),
       ]),
       previewSection("Border", [
         h("div", { class: "grid gap-3" }, [
-          h("div", { class: "rounded-md border bg-background p-4 text-sm" }, "默认边框"),
+          h("div", { class: "rounded-md border bg-background p-3 text-sm" }, "默认边框"),
           h(
             "div",
-            { class: "rounded-md border border-dashed bg-background p-4 text-sm" },
+            { class: "rounded-md border border-dashed bg-background p-3 text-sm" },
             "虚线边框",
           ),
-          h("div", { class: "rounded-md border bg-muted p-4 text-sm" }, "弱背景"),
+          h("div", { class: "rounded-md border bg-muted p-3 text-sm" }, "弱背景"),
         ]),
       ]),
       previewSection("Focus Ring", [
@@ -527,14 +534,21 @@ const PreviewSection = defineComponent({
   },
   setup(props, { slots }) {
     return () =>
-      h("section", { class: "grid gap-3" }, [
+      h("section", { class: "playground-section group grid gap-2" }, [
         h("div", { class: "flex flex-col gap-1" }, [
-          h("h2", { class: "text-base font-semibold" }, props.title),
+          h("h2", { class: "text-sm font-semibold" }, props.title),
           props.description
-            ? h("p", { class: "max-w-3xl text-sm text-muted-foreground" }, props.description)
+            ? h("p", { class: "max-w-3xl text-xs leading-5 text-muted-foreground" }, props.description)
             : null,
         ]),
-        h("div", { class: "rounded-lg border bg-background p-4" }, slots.default?.()),
+        h(
+          "div",
+          {
+            class:
+              "rounded-md border bg-background p-3 transition-[border-color,box-shadow,transform] duration-150 ease-out group-hover:border-foreground/20 group-hover:shadow-sm group-focus-within:border-ring/50 group-focus-within:shadow-sm motion-safe:group-hover:-translate-y-0.5 motion-reduce:transition-none",
+          },
+          slots.default?.(),
+        ),
       ]);
   },
 });
@@ -551,15 +565,21 @@ function componentGroup(label: string, children: VNodeChild) {
 }
 
 function metric(title: string, value: string) {
-  return h("div", { class: "flex items-center justify-between rounded-lg border bg-background p-3" }, [
-    h("span", { class: "text-sm text-muted-foreground" }, title),
-    h("span", { class: "text-lg font-semibold" }, value),
+  return h("div", {
+    class:
+      "flex items-center justify-between rounded-md border bg-background p-2.5 transition-[border-color,box-shadow,transform] duration-150 ease-out hover:border-foreground/20 hover:shadow-sm motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none",
+  }, [
+    h("span", { class: "text-xs text-muted-foreground" }, title),
+    h("span", { class: "text-base font-semibold" }, value),
   ]);
 }
 
 function referenceItem(title: string) {
-  return h("div", { class: "flex items-center gap-2 rounded-md border bg-background p-3" }, [
-    h(Sparkles, { "aria-hidden": "true", class: "size-4 text-muted-foreground" }),
-    h("span", title),
+  return h("div", {
+    class:
+      "flex items-center gap-2 rounded-md border bg-background p-2.5 text-sm transition-[border-color,box-shadow,transform] duration-150 ease-out hover:border-foreground/20 hover:shadow-sm motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none",
+  }, [
+    h(Sparkles, { "aria-hidden": "true", class: "size-3.5 text-muted-foreground" }),
+    h("span", { class: "truncate" }, title),
   ]);
 }

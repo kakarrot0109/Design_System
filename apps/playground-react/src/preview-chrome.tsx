@@ -78,14 +78,16 @@ export function PreviewSection({
   title: string;
 }) {
   return (
-    <section className="grid gap-3">
+    <section className="playground-section group grid gap-2">
       <div className="flex flex-col gap-1">
-        <h2 className="text-base font-semibold">{title}</h2>
+        <h2 className="text-sm font-semibold">{title}</h2>
         {description ? (
-          <p className="max-w-3xl text-sm text-muted-foreground">{description}</p>
+          <p className="max-w-3xl text-xs leading-5 text-muted-foreground">{description}</p>
         ) : null}
       </div>
-      <div className="rounded-lg border bg-background p-4">{children}</div>
+      <div className="rounded-md border bg-background p-3 transition-[border-color,box-shadow,transform] duration-150 ease-out group-hover:border-foreground/20 group-hover:shadow-sm group-focus-within:border-ring/50 group-focus-within:shadow-sm motion-safe:group-hover:-translate-y-0.5 motion-reduce:transition-none">
+        {children}
+      </div>
     </section>
   );
 }
@@ -107,18 +109,18 @@ export function ComponentGroup({
 
 export function Metric({ title, value }: { title: string; value: string }) {
   return (
-    <div className="flex items-center justify-between rounded-lg border bg-background p-3">
-      <span className="text-sm text-muted-foreground">{title}</span>
-      <span className="text-lg font-semibold">{value}</span>
+    <div className="flex items-center justify-between rounded-md border bg-background p-2.5 transition-[border-color,box-shadow,transform] duration-150 ease-out hover:border-foreground/20 hover:shadow-sm motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none">
+      <span className="text-xs text-muted-foreground">{title}</span>
+      <span className="text-base font-semibold">{value}</span>
     </div>
   );
 }
 
 export function ReferenceItem({ title }: { title: string }) {
   return (
-    <div className="flex items-center gap-2 rounded-md border bg-background p-3">
-      <Sparkles aria-hidden="true" className="size-4 text-muted-foreground" />
-      <span>{title}</span>
+    <div className="flex items-center gap-2 rounded-md border bg-background p-2.5 text-sm transition-[border-color,box-shadow,transform] duration-150 ease-out hover:border-foreground/20 hover:shadow-sm motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none">
+      <Sparkles aria-hidden="true" className="size-3.5 text-muted-foreground" />
+      <span className="truncate">{title}</span>
     </div>
   );
 }
