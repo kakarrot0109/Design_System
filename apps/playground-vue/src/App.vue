@@ -20,6 +20,7 @@ import {
   VCardFooter,
   VCardHeader,
   VCardTitle,
+  VCheckbox,
   VDialog,
   VDialogClose,
   VDialogContent,
@@ -32,11 +33,23 @@ import {
   VEmptyDescription,
   VEmptyTitle,
   VInput,
+  VList,
+  VListItem,
+  VRadioGroup,
+  VRadioGroupItem,
+  VSelect,
   VTabs,
   VTabsContent,
   VTabsList,
   VTabsTrigger,
+  VTable,
+  VTableBody,
+  VTableCell,
+  VTableHead,
+  VTableHeader,
+  VTableRow,
   VTextarea,
+  VTypography,
 } from "@design-system/vue-ui";
 import { Bot, CheckCircle2, FileText, Search, Settings2, Sparkles } from "lucide-vue-next";
 
@@ -264,6 +277,20 @@ const ReferenceItem = defineComponent({
             </template>
 
             <template v-else-if="activeSection === 'vue-ui'">
+              <PreviewSection description="覆盖标题、正文、说明文字、弱化文字、代码和小字号。" title="Typography">
+                <div class="grid gap-4">
+                  <VTypography variant="h1">页面主标题</VTypography>
+                  <VTypography variant="h2">区块标题</VTypography>
+                  <VTypography variant="lead">用于摘要和辅助说明的 lead 文本。</VTypography>
+                  <VTypography>默认正文保持 14px、舒适行高，适合后台和 AI 工作台的密集阅读。</VTypography>
+                  <div class="flex flex-wrap items-center gap-3">
+                    <VTypography variant="muted">弱化说明文字</VTypography>
+                    <VTypography variant="small">小字号标签</VTypography>
+                    <VTypography variant="code">pnpm dev</VTypography>
+                  </div>
+                </div>
+              </PreviewSection>
+
               <PreviewSection description="覆盖 default、secondary、outline、ghost、destructive，以及 sm、md、lg、icon。" title="Button">
                 <div class="grid gap-4">
                   <div class="flex flex-wrap gap-2">
@@ -294,6 +321,35 @@ const ReferenceItem = defineComponent({
                   </div>
                 </PreviewSection>
 
+                <PreviewSection title="Select">
+                  <div class="grid gap-3">
+                    <VSelect aria-label="组件类型" model-value="table">
+                      <option value="button">Button</option>
+                      <option value="select">Select</option>
+                      <option value="table">Table</option>
+                    </VSelect>
+                    <VSelect aria-label="禁用下拉框" disabled>
+                      <option>禁用状态</option>
+                    </VSelect>
+                  </div>
+                </PreviewSection>
+              </div>
+
+              <div class="grid gap-6 xl:grid-cols-2">
+                <PreviewSection title="Checkbox / RadioGroup">
+                  <div class="grid gap-4">
+                    <div class="grid gap-2">
+                      <VCheckbox label="显示禁用状态" :model-value="true" />
+                      <VCheckbox label="展示错误态样例" />
+                    </div>
+                    <VRadioGroup aria-label="尺寸" model-value="md">
+                      <VRadioGroupItem label="小尺寸" value="sm" />
+                      <VRadioGroupItem label="中尺寸" value="md" />
+                      <VRadioGroupItem label="大尺寸" value="lg" />
+                    </VRadioGroup>
+                  </div>
+                </PreviewSection>
+
                 <PreviewSection title="Badge">
                   <div class="flex flex-wrap gap-2">
                     <VBadge>默认</VBadge>
@@ -301,6 +357,45 @@ const ReferenceItem = defineComponent({
                     <VBadge variant="outline">描边</VBadge>
                     <VBadge variant="destructive">危险</VBadge>
                   </div>
+                </PreviewSection>
+              </div>
+
+              <div class="grid gap-6 xl:grid-cols-2">
+                <PreviewSection title="List">
+                  <VList>
+                    <VListItem title="Typography" description="字体层级、正文、辅助文字和代码。" />
+                    <VListItem title="Form" description="下拉框、单选框、多选框和输入框。" />
+                    <VListItem title="Data Display" description="列表、表格、状态列和操作列。" />
+                  </VList>
+                </PreviewSection>
+
+                <PreviewSection title="Table">
+                  <VTable>
+                    <VTableHeader>
+                      <VTableRow>
+                        <VTableHead>组件</VTableHead>
+                        <VTableHead>状态</VTableHead>
+                        <VTableHead>操作</VTableHead>
+                      </VTableRow>
+                    </VTableHeader>
+                    <VTableBody>
+                      <VTableRow>
+                        <VTableCell>Typography</VTableCell>
+                        <VTableCell><VBadge variant="secondary">已覆盖</VBadge></VTableCell>
+                        <VTableCell><VButton size="sm" variant="outline">查看</VButton></VTableCell>
+                      </VTableRow>
+                      <VTableRow>
+                        <VTableCell>Select</VTableCell>
+                        <VTableCell><VBadge variant="secondary">已覆盖</VBadge></VTableCell>
+                        <VTableCell><VButton size="sm" variant="outline">查看</VButton></VTableCell>
+                      </VTableRow>
+                      <VTableRow>
+                        <VTableCell>Table</VTableCell>
+                        <VTableCell><VBadge variant="outline">基础版</VBadge></VTableCell>
+                        <VTableCell><VButton size="sm" variant="outline">查看</VButton></VTableCell>
+                      </VTableRow>
+                    </VTableBody>
+                  </VTable>
                 </PreviewSection>
               </div>
 

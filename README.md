@@ -22,7 +22,7 @@
 | 页面 | 内容 |
 |---|---|
 | 总览 | 完整 Assistant 示例，包含消息、streaming、error、工具调用、引用、附件、推理和输入区 |
-| UI | React / Vue 的 Button、Input、Textarea、Card、Badge、Dialog、Tabs、Empty 全量展示 |
+| UI | React / Vue 的 Typography、Button、Input、Textarea、Select、Checkbox、RadioGroup、List、Table、Card、Badge、Dialog、Tabs、Empty 展示 |
 | AI | React / Vue 的 Attachments、ToolCallCard、CitationList、ReasoningBlock、TaskTimeline、Composer、MessageList 展示 |
 | tokens | 基础色、状态色、圆角、边框、focus ring 展示 |
 

@@ -19,6 +19,7 @@ import {
   VCardFooter,
   VCardHeader,
   VCardTitle,
+  VCheckbox,
   VDialog,
   VDialogClose,
   VDialogContent,
@@ -31,11 +32,23 @@ import {
   VEmptyDescription,
   VEmptyTitle,
   VInput,
+  VList,
+  VListItem,
+  VRadioGroup,
+  VRadioGroupItem,
+  VSelect,
   VTabs,
   VTabsContent,
   VTabsList,
   VTabsTrigger,
+  VTable,
+  VTableBody,
+  VTableCell,
+  VTableHead,
+  VTableHeader,
+  VTableRow,
   VTextarea,
+  VTypography,
 } from "@design-system/vue-ui";
 import { FileText, Search, Sparkles } from "lucide-vue-next";
 
@@ -148,6 +161,27 @@ function renderOverviewPage() {
 function renderVueUiPage() {
   return h("div", { class: "grid gap-6" }, [
     previewSection(
+      "Typography",
+      [
+        h("div", { class: "grid gap-4" }, [
+          h(VTypography, { variant: "h1" }, () => "页面主标题"),
+          h(VTypography, { variant: "h2" }, () => "区块标题"),
+          h(VTypography, { variant: "lead" }, () => "用于摘要和辅助说明的 lead 文本。"),
+          h(
+            VTypography,
+            null,
+            () => "默认正文保持 14px、舒适行高，适合后台和 AI 工作台的密集阅读。",
+          ),
+          h("div", { class: "flex flex-wrap items-center gap-3" }, [
+            h(VTypography, { variant: "muted" }, () => "弱化说明文字"),
+            h(VTypography, { variant: "small" }, () => "小字号标签"),
+            h(VTypography, { variant: "code" }, () => "pnpm dev"),
+          ]),
+        ]),
+      ],
+      "覆盖标题、正文、说明文字、弱化文字、代码和小字号。",
+    ),
+    previewSection(
       "Button",
       [
         h("div", { class: "grid gap-4" }, [
@@ -179,12 +213,88 @@ function renderVueUiPage() {
           h(VTextarea, { placeholder: "记录组件验收意见" }),
         ]),
       ]),
+      previewSection("Select", [
+        h("div", { class: "grid gap-3" }, [
+          h(VSelect, { ariaLabel: "组件类型", modelValue: "table" }, () => [
+            h("option", { value: "button" }, "Button"),
+            h("option", { value: "select" }, "Select"),
+            h("option", { value: "table" }, "Table"),
+          ]),
+          h(VSelect, { ariaLabel: "禁用下拉框", disabled: true }, () =>
+            h("option", "禁用状态"),
+          ),
+        ]),
+      ]),
+    ]),
+    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+      previewSection("Checkbox / RadioGroup", [
+        h("div", { class: "grid gap-4" }, [
+          h("div", { class: "grid gap-2" }, [
+            h(VCheckbox, { label: "显示禁用状态", modelValue: true }),
+            h(VCheckbox, { label: "展示错误态样例" }),
+          ]),
+          h(VRadioGroup, { ariaLabel: "尺寸", modelValue: "md" }, () => [
+            h(VRadioGroupItem, { label: "小尺寸", value: "sm" }),
+            h(VRadioGroupItem, { label: "中尺寸", value: "md" }),
+            h(VRadioGroupItem, { label: "大尺寸", value: "lg" }),
+          ]),
+        ]),
+      ]),
       previewSection("Badge", [
         h("div", { class: "flex flex-wrap gap-2" }, [
           h(VBadge, null, () => "默认"),
           h(VBadge, { variant: "secondary" }, () => "次级"),
           h(VBadge, { variant: "outline" }, () => "描边"),
           h(VBadge, { variant: "destructive" }, () => "危险"),
+        ]),
+      ]),
+    ]),
+    h("div", { class: "grid gap-6 xl:grid-cols-2" }, [
+      previewSection("List", [
+        h(VList, null, () => [
+          h(VListItem, { description: "字体层级、正文、辅助文字和代码。", title: "Typography" }),
+          h(VListItem, { description: "下拉框、单选框、多选框和输入框。", title: "Form" }),
+          h(VListItem, { description: "列表、表格、状态列和操作列。", title: "Data Display" }),
+        ]),
+      ]),
+      previewSection("Table", [
+        h(VTable, null, () => [
+          h(VTableHeader, null, () =>
+            h(VTableRow, null, () => [
+              h(VTableHead, null, () => "组件"),
+              h(VTableHead, null, () => "状态"),
+              h(VTableHead, null, () => "操作"),
+            ]),
+          ),
+          h(VTableBody, null, () => [
+            h(VTableRow, null, () => [
+              h(VTableCell, null, () => "Typography"),
+              h(VTableCell, null, () =>
+                h(VBadge, { variant: "secondary" }, () => "已覆盖"),
+              ),
+              h(VTableCell, null, () =>
+                h(VButton, { size: "sm", variant: "outline" }, () => "查看"),
+              ),
+            ]),
+            h(VTableRow, null, () => [
+              h(VTableCell, null, () => "Select"),
+              h(VTableCell, null, () =>
+                h(VBadge, { variant: "secondary" }, () => "已覆盖"),
+              ),
+              h(VTableCell, null, () =>
+                h(VButton, { size: "sm", variant: "outline" }, () => "查看"),
+              ),
+            ]),
+            h(VTableRow, null, () => [
+              h(VTableCell, null, () => "Table"),
+              h(VTableCell, null, () =>
+                h(VBadge, { variant: "outline" }, () => "基础版"),
+              ),
+              h(VTableCell, null, () =>
+                h(VButton, { size: "sm", variant: "outline" }, () => "查看"),
+              ),
+            ]),
+          ]),
         ]),
       ]),
     ]),

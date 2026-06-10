@@ -18,5 +18,9 @@ describe("playground-vue", () => {
 
     expect(wrapper.text()).toContain("Button");
     expect(wrapper.text()).toContain("Input / Textarea");
+    expect(wrapper.text()).toContain("Typography");
+    expect(wrapper.text()).toContain("Select");
+    expect(wrapper.text()).toContain("RadioGroup");
+    expect(wrapper.text()).toContain("Table");
   });
 });

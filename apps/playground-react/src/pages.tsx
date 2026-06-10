@@ -18,6 +18,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  Checkbox,
   Dialog,
   DialogClose,
   DialogContent,
@@ -30,11 +31,23 @@ import {
   EmptyDescription,
   EmptyTitle,
   Input,
+  List,
+  ListItem,
+  RadioGroup,
+  RadioGroupItem,
+  Select,
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
   Textarea,
+  Typography,
 } from "@design-system/react-ui";
 import { FileText, Search } from "lucide-react";
 
@@ -120,6 +133,25 @@ export function ReactUiPage() {
   return (
     <div className="grid gap-6">
       <PreviewSection
+        description="覆盖标题、正文、说明文字、弱化文字、代码和小字号。"
+        title="Typography"
+      >
+        <div className="grid gap-4">
+          <Typography variant="h1">页面主标题</Typography>
+          <Typography variant="h2">区块标题</Typography>
+          <Typography variant="lead">用于摘要和辅助说明的 lead 文本。</Typography>
+          <Typography>
+            默认正文保持 14px、舒适行高，适合后台和 AI 工作台的密集阅读。
+          </Typography>
+          <div className="flex flex-wrap items-center gap-3">
+            <Typography variant="muted">弱化说明文字</Typography>
+            <Typography variant="small">小字号标签</Typography>
+            <Typography variant="code">pnpm dev</Typography>
+          </div>
+        </div>
+      </PreviewSection>
+
+      <PreviewSection
         description="覆盖 default、secondary、outline、ghost、destructive，以及 sm、md、lg、icon。"
         title="Button"
       >
@@ -152,6 +184,35 @@ export function ReactUiPage() {
           </div>
         </PreviewSection>
 
+        <PreviewSection title="Select">
+          <div className="grid gap-3">
+            <Select aria-label="组件类型" defaultValue="table">
+              <option value="button">Button</option>
+              <option value="select">Select</option>
+              <option value="table">Table</option>
+            </Select>
+            <Select aria-label="禁用下拉框" disabled>
+              <option>禁用状态</option>
+            </Select>
+          </div>
+        </PreviewSection>
+      </div>
+
+      <div className="grid gap-6 xl:grid-cols-2">
+        <PreviewSection title="Checkbox / RadioGroup">
+          <div className="grid gap-4">
+            <div className="grid gap-2">
+              <Checkbox defaultChecked label="显示禁用状态" />
+              <Checkbox label="展示错误态样例" />
+            </div>
+            <RadioGroup aria-label="尺寸" defaultValue="md">
+              <RadioGroupItem label="小尺寸" value="sm" />
+              <RadioGroupItem label="中尺寸" value="md" />
+              <RadioGroupItem label="大尺寸" value="lg" />
+            </RadioGroup>
+          </div>
+        </PreviewSection>
+
         <PreviewSection title="Badge">
           <div className="flex flex-wrap gap-2">
             <Badge>默认</Badge>
@@ -159,6 +220,45 @@ export function ReactUiPage() {
             <Badge variant="outline">描边</Badge>
             <Badge variant="destructive">危险</Badge>
           </div>
+        </PreviewSection>
+      </div>
+
+      <div className="grid gap-6 xl:grid-cols-2">
+        <PreviewSection title="List">
+          <List>
+            <ListItem title="Typography" description="字体层级、正文、辅助文字和代码。" />
+            <ListItem title="Form" description="下拉框、单选框、多选框和输入框。" />
+            <ListItem title="Data Display" description="列表、表格、状态列和操作列。" />
+          </List>
+        </PreviewSection>
+
+        <PreviewSection title="Table">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>组件</TableHead>
+                <TableHead>状态</TableHead>
+                <TableHead>操作</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell>Typography</TableCell>
+                <TableCell><Badge variant="secondary">已覆盖</Badge></TableCell>
+                <TableCell><Button size="sm" variant="outline">查看</Button></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Select</TableCell>
+                <TableCell><Badge variant="secondary">已覆盖</Badge></TableCell>
+                <TableCell><Button size="sm" variant="outline">查看</Button></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Table</TableCell>
+                <TableCell><Badge variant="outline">基础版</Badge></TableCell>
+                <TableCell><Button size="sm" variant="outline">查看</Button></TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </PreviewSection>
       </div>
 

@@ -30,6 +30,7 @@
 - [x] 补正式预览展厅 → 验证：总览、react-ui、react-ai、tokens 四页可浏览
 - [x] 增加 Vue 适配 → 验证：`vue-ui`、`vue-ai`、`playground-vue` 可测试、可构建、可预览
 - [x] 统一 React / Vue playground → 验证：`pnpm dev` 可在同页切换 React 和 Vue
+- [x] 扩展核心 UI 覆盖 → 验证：Typography、Select、Checkbox、RadioGroup、List、Table 在 React/Vue 中可测试、可构建、可预览
 
 ## 复盘
 
@@ -47,3 +48,6 @@
 - 已新增统一入口 `@design-system/playground`，`pnpm dev` 默认打开统一预览。
 - 统一 playground 可在同一页面切换 React / Vue，并共用总览、UI、AI、tokens 四页导航。
 - 统一 playground 浏览器检查：`http://127.0.0.1:5176/` 桌面 React/Vue 与 UI/AI/tokens 可切换，移动端无页面级横向溢出。
+- 已扩展核心 UI 覆盖：Typography、Select、Checkbox、RadioGroup、List、Table。
+- 新增组件已同时覆盖 React/Vue 包、统一 playground 和独立 React/Vue playground。
+- 核心 UI 浏览器检查：`http://127.0.0.1:5176/` 桌面和 375px 移动端 React/Vue UI 页无页面级横向溢出。

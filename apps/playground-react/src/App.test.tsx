@@ -20,5 +20,9 @@ describe("playground", () => {
 
     expect(screen.getByRole("heading", { name: "Button" })).toBeInTheDocument();
     expect(screen.getByText("Input / Textarea")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Typography" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Select" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Checkbox / RadioGroup" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Table" })).toBeInTheDocument();
   });
 });
