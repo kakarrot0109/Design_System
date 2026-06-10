@@ -63,6 +63,64 @@ importers:
         specifier: ^3.5.13
         version: 3.5.35(typescript@5.9.3)
 
+  apps/playground:
+    dependencies:
+      '@design-system/react-ai':
+        specifier: workspace:*
+        version: link:../../packages/react-ai
+      '@design-system/react-ui':
+        specifier: workspace:*
+        version: link:../../packages/react-ui
+      '@design-system/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
+      '@design-system/vue-ai':
+        specifier: workspace:*
+        version: link:../../packages/vue-ai
+      '@design-system/vue-ui':
+        specifier: workspace:*
+        version: link:../../packages/vue-ui
+      lucide-react:
+        specifier: ^0.468.0
+        version: 0.468.0(react@19.2.7)
+      lucide-vue-next:
+        specifier: ^0.468.0
+        version: 0.468.0(vue@3.5.35(typescript@5.9.3))
+      react:
+        specifier: ^19.0.0
+        version: 19.2.7
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.2.7(react@19.2.7)
+      vue:
+        specifier: ^3.5.13
+        version: 3.5.35(typescript@5.9.3)
+    devDependencies:
+      '@vitejs/plugin-react':
+        specifier: ^4.3.4
+        version: 4.7.0(vite@6.4.3(@types/node@22.19.20)(jiti@1.21.7))
+      '@vitejs/plugin-vue':
+        specifier: ^5.2.1
+        version: 5.2.4(vite@6.4.3(@types/node@22.19.20)(jiti@1.21.7))(vue@3.5.35(typescript@5.9.3))
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.5.0(postcss@8.5.15)
+      postcss:
+        specifier: ^8.4.49
+        version: 8.5.15
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.19
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vite:
+        specifier: ^6.0.5
+        version: 6.4.3(@types/node@22.19.20)(jiti@1.21.7)
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.19.20)(jsdom@25.0.1)
+
   apps/playground-react:
     dependencies:
       '@design-system/react-ai':
