@@ -28,6 +28,7 @@
 - [x] 运行完整验证 → 验证：`pnpm test`、`pnpm build` 通过
 - [x] 启动 playground → 验证：浏览器可打开页面，布局无明显错误
 - [x] 补正式预览展厅 → 验证：总览、react-ui、react-ai、tokens 四页可浏览
+- [x] 增加 Vue 适配 → 验证：`vue-ui`、`vue-ai`、`playground-vue` 可测试、可构建、可预览
 
 ## 复盘
 
@@ -37,3 +38,8 @@
 - `pnpm test` 通过：`react-ui` 2 个测试，`react-ai` 2 个测试，`playground-react` 2 个测试。
 - `pnpm build` 通过：tokens、react-ui、react-ai、playground-react 均完成构建。
 - 浏览器检查：四个导航页可打开，桌面和 375px 移动端无页面级横向溢出。
+- 已增加 `vue-ui`、`vue-ai`、`playground-vue`，并补 `pnpm dev:vue`。
+- Vue playground 包含总览、vue-ui、vue-ai、tokens 四个页面，覆盖基础组件和 AI 场景组件。
+- 最新 `pnpm test` 通过：React、Vue 两套包和两个 playground 均通过。
+- 最新 `pnpm build` 通过：React、Vue 两套包和两个 playground 均完成构建。
+- Vue 浏览器检查：`http://127.0.0.1:5175/` 桌面四页可切换，375px 移动端无页面级横向溢出。
